@@ -1,0 +1,66 @@
+{
+    "name": "groton-school/sis-lti",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sbattis@groton.org",
+            "homepage": "https://www.groton.org"
+        },
+        {
+            "name": "Josh Lockhart",
+            "email": "info@joshlockhart.com",
+            "homepage": "http://www.joshlockhart.com/"
+        },
+        {
+            "name": "Pierre Berube",
+            "email": "pierre@lgse.com",
+            "homepage": "http://www.lgse.com/"
+        }
+    ],
+    "require": {
+        "ext-json": "*",
+        "groton-school/slim-gae-shim": "dev-main",
+        "groton-school/slim-lti-infrastructure-gae": "dev-main",
+        "groton-school/slim-lti-shim": "dev-main",
+        "monolog/monolog": "^2.9",
+        "php": "^7.4 || ^8.0",
+        "php-di/php-di": "^6.4",
+        "slim/php-view": "^3.4",
+        "slim/psr7": "^1.6",
+        "slim/slim": "^4.12"
+    },
+    "require-dev": {
+        "franzl/studio": "^0.16.0",
+        "friendsofphp/php-cs-fixer": "^3.74",
+        "jangregor/phpstan-prophecy": "^1.0.0",
+        "marcocesarato/php-conventional-changelog": "^1.17",
+        "phpspec/prophecy-phpunit": "^2.2",
+        "phpstan/extension-installer": "^1.3.1",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.6.17",
+        "squizlabs/php_codesniffer": "^3.9",
+        "symplify/monorepo-builder": "^11.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "packages/attendance-lti/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "packages/attendance-lti/tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "franzl/studio": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "replace": {
+        "groton-school/slim-lti-gae-skeleton": "self.version"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
