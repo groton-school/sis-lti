@@ -42,6 +42,13 @@
         "squizlabs/php_codesniffer": "^3.9",
         "symplify/monorepo-builder": "^11.2"
     },
+    "replace": {
+        "groton-school/sis-attendance-lti": "self.version",
+        "groton-school/sis-course-lti": "self.version",
+        "groton-school/slim-lti-gae-skeleton": "self.version"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "App\\": "packages/attendance-lti/src/"
@@ -49,7 +56,11 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "packages/attendance-lti/tests/"
+            "Tests\\": [
+                "packages/attendance-lti/tests/",
+                "packages/sis-attendance-lti/tests/",
+                "packages/sis-courses-lti/tests/"
+            ]
         }
     },
     "config": {
@@ -57,10 +68,5 @@
             "franzl/studio": true,
             "phpstan/extension-installer": true
         }
-    },
-    "replace": {
-        "groton-school/slim-lti-gae-skeleton": "self.version"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

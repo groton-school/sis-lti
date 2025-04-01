@@ -44,11 +44,11 @@ return function (ContainerBuilder $containerBuilder) {
                                 "type" => "LtiResourceLinkRequest",
                                 "label" => 'Attendance',
                                 "custom_parameters" => [
-                                    "foo" => "bar",
                                     "context_id" => '$Context.id'
                                 ],
                                 "placements" => ["course_navigation"],
                                 "roles" => [],
+                                "https://canvas.instructure.com/lti/visibility" => 'admins',
                                 "target_link_uri" => "{$PROJECT_URL}/lti/launch?placement=course_navigation",
                                 "https://canvas.instructure.com/lti/display_type" => "new_window"
                             ]
