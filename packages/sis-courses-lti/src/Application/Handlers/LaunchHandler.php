@@ -9,26 +9,33 @@ use GrotonSchool\Slim\LTI\Handlers\LaunchHandlerInterface;
 use Packback\Lti1p3\LtiConstants;
 use Packback\Lti1p3\LtiMessageLaunch;
 use Psr\Http\Message\ResponseInterface;
+use Slim\Views\PhpRenderer;
 
 class LaunchHandler implements LaunchHandlerInterface
 {
-    private SettingsInterface $settings;
-
-    public function __construct(SettingsInterface $settings)
-    {
-        $this->settings = $settings;
+    public function __construct(
+        private SettingsInterface $settings,
+        private PhpRenderer $views
+    ) {
     }
 
     public function handle(ResponseInterface $response, LtiMessageLaunch $launch): ResponseInterface
     {
-        $courseId = preg_replace(
-            '/cls-\d+-(\d+)/',
-            '$1',
-            $launch->getLaunchData()[LtiConstants::LIS]['course_offering_sourcedid']
+        $sections = array_combine(
+            json_decode($launch->getLaunchData()[LtiConstants::CUSTOM]['section_names']),
+            array_map(
+                fn ($id) => 'https://' . $this->settings->getBlackbaudInstance() . ".myschoolapp.com/app/faculty?override=true#academicclass/{$id}/0/bulletinboard",
+                str_replace('cls-542-', '', explode(',', $launch->getLaunchData()[LtiConstants::CUSTOM]['sis_section_ids']))
+            )
         );
-        return $response->withAddedHeader(
-            'Location',
-            'https://' . $this->settings->getBlackbaudInstance() . ".myschoolapp.com/app/faculty?override=true#academicclass/{$courseId}/0/bulletinboard"
-        );
+        if (count($sections) === 1) {
+            return $this->views->render($response, 'redirect.php', [
+                'redirect' => array_pop($sections)
+            ]);
+        } else {
+            return $this->views->render($response, 'picker.php', [
+                'sections' => $sections
+            ]);
+        }
     }
 }

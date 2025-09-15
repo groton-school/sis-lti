@@ -22,6 +22,16 @@ class Settings implements SettingsInterface
         $this->settings = $settings;
     }
 
+    public function getLoggerName(): string
+    {
+        return 'sis-courses-lti';
+    }
+
+    public function getCacheDuration(): int
+    {
+        return 5400;
+    }
+
     /**
      * @return mixed
      */

@@ -44,12 +44,13 @@ return function (ContainerBuilder $containerBuilder) {
                                 "type" => "LtiResourceLinkRequest",
                                 "label" => 'myGroton',
                                 "custom_parameters" => [
-                                    "context_id" => '$Context.id'
+                                    "context_id" => '$Context.id',
+                                    "section_names" => '$com.instructure.User.sectionNames',
+                                    'sis_section_ids' => '$Canvas.course.sectionSisSourceIds'
                                 ],
                                 "placements" => ["course_navigation"],
                                 "roles" => [],
-                                "target_link_uri" => "{$PROJECT_URL}/lti/launch?placement=course_navigation",
-                                "https://canvas.instructure.com/lti/display_type" => "new_window"
+                                "target_link_uri" => "{$PROJECT_URL}/lti/launch?placement=course_navigation"
                             ]
                         ],
                         "claims" => [
