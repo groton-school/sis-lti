@@ -35,11 +35,16 @@
   "require": {
     "php": "^7.4 || ^8.0",
     "ext-json": "*",
+    "battis/lazy-secrets": "^1.1",
+    "groton-school/oauth2-canvaslms": "^1.1",
     "groton-school/slim-gae-shim": "^2.0",
     "groton-school/slim-lti-infrastructure-gae": "^3.0",
     "groton-school/slim-lti-shim": "^4.0",
+    "groton-school/slim-oauth2-api-proxy": "^3.1",
     "monolog/monolog": "^2.9",
+    "odan/session": "^6.4",
     "php-di/php-di": "^7.0",
+    "psr/container": "^2.0",
     "slim/psr7": "^1.6",
     "slim/slim": "^4.12"
   },

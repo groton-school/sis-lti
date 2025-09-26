@@ -33,5 +33,7 @@ import path from 'node:path';
     Shell.exec(
       `gcloud firestore databases update --type=firestore-native --database="${database}" --project=${project.projectId || process.env.PROJECT} --format=json --quiet`
     );
+    await gcloud.services.enable(gcloud.services.API.SecretManagerAPI);
+    await gcloud.secrets.enableAppEngineAccess();
   }
 })();
