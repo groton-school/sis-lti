@@ -4,4 +4,3 @@ basic_scaling:
 runtime_config:
   enable_stackdriver_integration: true
 entrypoint: serve public/index.php
-
