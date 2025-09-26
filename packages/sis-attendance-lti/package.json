@@ -2,7 +2,7 @@
   "description": "Provide Node-based deployment wizard to Google App Engine",
   "type": "module",
   "scripts": {
-    "deploy": "op run --env-file ./env -- node ./bin/deploy.js"
+    "deploy": "op run --no-masking --env-file ./.env -- node ./bin/deploy.js -v"
   },
   "dependencies": {
     "@battis/qui-cli.shell": "^2.0.2"
