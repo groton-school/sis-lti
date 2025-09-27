@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b5f1df747704d916a46dfc49ad8c0b1d",
+    "content-hash": "de293bb498a9e8e739af5318af1be075",
     "packages": [
         {
             "name": "battis/lazy-secrets",
