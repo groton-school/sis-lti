@@ -1,74 +1,74 @@
 {
-  "name": "groton-school/sis-lti",
-  "license": "GPL-3.0",
-  "authors": [
-    {
-      "name": "Seth Battis",
-      "email": "sbattis@groton.org",
-      "homepage": "https://www.groton.org"
+    "name": "groton-school/sis-lti",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "sbattis@groton.org",
+            "homepage": "https://www.groton.org"
+        },
+        {
+            "name": "Josh Lockhart",
+            "email": "info@joshlockhart.com",
+            "homepage": "http://www.joshlockhart.com/"
+        },
+        {
+            "name": "Pierre Berube",
+            "email": "pierre@lgse.com",
+            "homepage": "http://www.lgse.com/"
+        }
+    ],
+    "require": {
+        "battis/lazy-secrets": "^1.1",
+        "ext-json": "*",
+        "groton-school/oauth2-canvaslms": "^1.1",
+        "groton-school/slim-gae-shim": "^2.1.1",
+        "groton-school/slim-lti-infrastructure-gae": "^3.0.1",
+        "groton-school/slim-lti-shim": "^4.1.4",
+        "groton-school/slim-oauth2-api-proxy": "^3.1",
+        "monolog/monolog": "^2.9",
+        "odan/session": "^6.4",
+        "php": "^7.4 || ^8.0",
+        "php-di/php-di": "^7.0",
+        "psr/container": "^2.0",
+        "slim/php-view": "^3.4",
+        "slim/psr7": "^1.6",
+        "slim/slim": "^4.12"
     },
-    {
-      "name": "Josh Lockhart",
-      "email": "info@joshlockhart.com",
-      "homepage": "http://www.joshlockhart.com/"
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.74",
+        "jangregor/phpstan-prophecy": "^1.0.0",
+        "marcocesarato/php-conventional-changelog": "^1.17",
+        "phpspec/prophecy-phpunit": "^2.2",
+        "phpstan/extension-installer": "^1.3.1",
+        "phpstan/phpstan": "^1.10",
+        "phpunit/phpunit": "^9.6.17",
+        "squizlabs/php_codesniffer": "^3.9",
+        "symplify/monorepo-builder": "^11.2"
     },
-    {
-      "name": "Pierre Berube",
-      "email": "pierre@lgse.com",
-      "homepage": "http://www.lgse.com/"
+    "replace": {
+        "groton-school/sis-attendance-lti": "self.version",
+        "groton-school/sis-course-lti": "self.version",
+        "groton-school/slim-lti-gae-skeleton": "self.version"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "App\\": "packages/sis-courses-lti/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": [
+                "packages/sis-attendance-lti/tests/",
+                "packages/sis-courses-lti/tests/"
+            ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
     }
-  ],
-  "require": {
-    "battis/lazy-secrets": "^1.1",
-    "ext-json": "*",
-    "groton-school/oauth2-canvaslms": "^1.1",
-    "groton-school/slim-gae-shim": "^2.1.1",
-    "groton-school/slim-lti-infrastructure-gae": "^3.0.0",
-    "groton-school/slim-lti-shim": "^4.1.3",
-    "groton-school/slim-oauth2-api-proxy": "^3.1",
-    "monolog/monolog": "^2.9",
-    "odan/session": "^6.4",
-    "php": "^7.4 || ^8.0",
-    "php-di/php-di": "^7.0",
-    "psr/container": "^2.0",
-    "slim/php-view": "^3.4",
-    "slim/psr7": "^1.6",
-    "slim/slim": "^4.12"
-  },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.74",
-    "jangregor/phpstan-prophecy": "^1.0.0",
-    "marcocesarato/php-conventional-changelog": "^1.17",
-    "phpspec/prophecy-phpunit": "^2.2",
-    "phpstan/extension-installer": "^1.3.1",
-    "phpstan/phpstan": "^1.10",
-    "phpunit/phpunit": "^9.6.17",
-    "squizlabs/php_codesniffer": "^3.9",
-    "symplify/monorepo-builder": "^11.2"
-  },
-  "autoload": {
-    "psr-4": {
-      "App\\": "packages/sis-courses-lti/src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\": [
-        "packages/sis-attendance-lti/tests/",
-        "packages/sis-courses-lti/tests/"
-      ]
-    }
-  },
-  "replace": {
-    "groton-school/sis-attendance-lti": "self.version",
-    "groton-school/sis-course-lti": "self.version",
-    "groton-school/slim-lti-gae-skeleton": "self.version"
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "config": {
-    "allow-plugins": {
-      "phpstan/extension-installer": true
-    }
-  }
 }
